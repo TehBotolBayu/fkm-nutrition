@@ -2,7 +2,7 @@ import React from "react";
 import Meter from "../Global/Meter";
 import Card from "../Global/Card";
 
-const Page = ({ imtval , kategori, cal  }) => {
+const Page = ({ imtval , kategori, cal  }:{ imtval :any, kategori:any, cal:any  }) => {
   
   return (
     <div>

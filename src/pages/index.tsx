@@ -6,7 +6,7 @@ import Figure from "@/components/Figure";
 import Accordion from "@/components/Global/Accordion";
 import Link from "next/link";
 import { useIsVisible } from "@/hooks";
-import ScrollAnimation from "react-animate-on-scroll";
+// import ScrollAnimation from "react-animate-on-scroll";
 
 function App() {
   const [name, setName] = useState("");
@@ -37,14 +37,17 @@ function App() {
     // Calculate Basal Metabolic Rate (BMR) using the Harris-Benedict equation
     let bmr;
     console.log(gender);
-    if (gender === "male") {
-      // BMR formula for males
-      bmr = 88.362 + 13.397 * berat + 4.799 * tinggi - 5.677 * usia;
-    } else if (gender === "female") {
-      // BMR formula for females
-      bmr = 447.593 + 9.247 * berat + 3.098 * tinggi - 4.33 * usia;
-    } else {
-      throw new Error("Invalid gender provided");
+    if (berat && tinggi && usia) {
+
+      if (gender === "male") {
+        // BMR formula for males
+        bmr = 88.362 + 13.397 * berat + 4.799 * tinggi - 5.677 * usia;
+      } else if (gender === "female") {
+        // BMR formula for females
+        bmr = 447.593 + 9.247 * berat + 3.098 * tinggi - 4.33 * usia;
+      } else {
+        throw new Error("Invalid gender provided");
+      }
     }
 
     // Activity multiplier based on activity level
@@ -68,39 +71,45 @@ function App() {
     }
 
     // Calculate daily calorie needs
-    let dailyCalories = bmr * activityMultiplier;
+    let dailyCalories
+    if (bmr) dailyCalories
+      = bmr * activityMultiplier;
     let num = Number(dailyCalories);
     let rounded = num.toFixed(2);
-    setCalorie(Number(rounded));
+    setCalorie(Number(rounded) as any);
   }
 
   useEffect(() => {
     function BMICategory() {
-      console.log("result", result);
-      if (result < 18.5) {
-        setCategory("Kurus");
-      } else if (result >= 18.5 && result < 24.9) {
-        setCategory("Normal");
-      } else if (result >= 24.9 && result < 29.9) {
-        setCategory("Kelebihan Berat Badan");
-      } else {
-        setCategory("Obesitas");
+      if(result){
+
+        if (result < 18.5) {
+          setCategory("Kurus");
+        } else if (result >= 18.5 && result < 24.9) {
+          setCategory("Normal");
+        } else if (result >= 24.9 && result < 29.9) {
+          setCategory("Kelebihan Berat Badan");
+        } else {
+          setCategory("Obesitas");
+        }
       }
     }
     BMICategory();
   }, [result]);
 
   function handleSubmit() {
-    if (!usia || !berat || !usia) {
+    if (!usia || !berat || !usia || !tinggi) {
       alert("Lengkapi Data Anda");
       return;
+    } else {
+
+      calculateCaloriesNeeded();
+      console.log(name, usia, berat, tinggi, pekerjaan);
+      let num = Number((berat / (tinggi * tinggi)) * 10000);
+      let rounded = num.toFixed(2);
+      setResult(Number(rounded) as any);
+      setShow(true);
     }
-    calculateCaloriesNeeded();
-    console.log(name, usia, berat, tinggi, pekerjaan);
-    let num = Number((berat / (tinggi * tinggi)) * 10000);
-    let rounded = num.toFixed(2);
-    setResult(Number(rounded));
-    setShow(true);
   }
 
   return (
@@ -1332,11 +1341,10 @@ function App() {
                 <div
                   ref={ref1}
                   className={`transition-all ease-out duration-700 
-                  ${
-                    isVisible1
+                  ${isVisible1
                       ? "opacity-100 -translate-x-0"
                       : "-translate-x-[100%] opacity-0"
-                  }
+                    }
                   `}
                 >
                   <div className="mb-12 max-w-[540px] lg:mb-0">
@@ -1402,11 +1410,10 @@ function App() {
         <div
           ref={ref3}
           className={`transition-all ease-out duration-1000
-                  ${
-                    isVisible3
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-20"
-                  }
+                  ${isVisible3
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-20"
+            }
                   `}
         >
           <div className="container mx-auto">
@@ -1447,7 +1454,7 @@ function App() {
                             Usia
                           </label>
                           <input
-                            onChange={(e) => setUsia(e.target.value)}
+                            onChange={(e) => setUsia(e.target.value as any)}
                             type="number"
                             id=""
                             className="bg-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -1463,7 +1470,7 @@ function App() {
                             Berat Badan (kg)
                           </label>
                           <input
-                            onChange={(e) => setBerat(e.target.value)}
+                            onChange={(e) => setBerat(e.target.value as any)}
                             type="number"
                             id=""
                             className="bg-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -1479,7 +1486,7 @@ function App() {
                             Tinggi Badan (cm)
                           </label>
                           <input
-                            onChange={(e) => setTinggi(e.target.value)}
+                            onChange={(e) => setTinggi(e.target.value as any)}
                             type="number"
                             id=""
                             className="bg-white bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -1605,29 +1612,27 @@ function App() {
       {/* {show && ( */}
       <section
         id="pricing"
-        className={`relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] img-bg ${
-          show ? "visible" : "invisible"
-        }`}
+        className={`relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] img-bg ${show ? "visible" : "invisible"
+          }`}
       >
         <div className="relative z-10 overflow-hidden   py-20 lg:py-[115px]">
           <div
             ref={ref2}
             className={`transition-all ease-out duration-700 
-                  ${
-                    show && isVisible2
-                      ? "opacity-100 translate-y-0"
-                      : "translate-y-[20%] opacity-0"
-                  }
+                  ${show && isVisible2
+                ? "opacity-100 translate-y-0"
+                : "translate-y-[20%] opacity-0"
+              }
                   `}
           >
             <h1 className="text-center text-white text-5xl font-bold mb-14">
               Hasil Perhitungan
             </h1>
-          <div className="max-w-screen-xl mx-auto flex justify-center">
-            <ResultBMI imtval={result} kategori={category} cal={calorie} />
-            <div className="mx-5"></div>
-            <Figure kategori={category} cal={calorie} />
-          </div>
+            <div className="max-w-screen-xl mx-auto flex justify-center">
+              <ResultBMI imtval={result} kategori={category} cal={calorie} />
+              <div className="mx-5"></div>
+              <Figure kategori={category} cal={calorie} />
+            </div>
           </div>
         </div>
       </section>

@@ -16,7 +16,7 @@ const Page = ({
   return (
     <div
       className="z-50 fixed top-0 left-0 w-screen h-screen bg-black flex items-center justify-center"
-      onClick={() => setshowFull((p) => !p)}
+      onClick={() => setshowFull((p:any) => !p)}
     >
       <div>
         <img src={src} height={h} width={w} alt={alt} />

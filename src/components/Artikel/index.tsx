@@ -3,7 +3,7 @@ import ArticleCard from "../Card/ArticleCard";
 import SectionTitle from "../SectionTitle";
 import NormalButton from "../Global/Button/NormalButton";
 import { getBlogEntries } from "@/utils/contentful.tsx";
-import { BlogQueryResult } from "@/types";
+import { BlogQueryResult, blogTag } from "@/types";
 import Banner from "@/components/Global/Banner";
 
 export default function Artikel({
@@ -11,7 +11,7 @@ export default function Artikel({
   head,
 }: {
   blogEntries: BlogQueryResult;
-  head: string;
+  head: any;
 }) {
   return (
     <section className="py-8 " id="artikel">

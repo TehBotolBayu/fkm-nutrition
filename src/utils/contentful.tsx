@@ -133,7 +133,7 @@ const renderOptions = {
     },
   },
   renderMark: {
-    [MARKS.BOLD]: (children: any) => <bold>{children}</bold>,
+    [MARKS.BOLD]: (children: any) => <span className="font-extrabold">{children}</span>,
   },
   renderText: (text: any) => text.replace("!", "?"),
 };
