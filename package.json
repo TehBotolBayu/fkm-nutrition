@@ -1,0 +1,37 @@
+{
+  "name": "kelurahannextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@contentful/rich-text-plain-text-renderer": "^16.2.8",
+    "@contentful/rich-text-react-renderer": "^15.22.9",
+    "@types/geojson": "^7946.0.14",
+    "contentful": "^10.12.15",
+    "dotenv": "^16.4.5",
+    "leaflet": "^1.9.4",
+    "leaflet-defaulticon-compatibility": "^0.1.2",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-animate-on-scroll": "^2.1.9",
+    "react-dom": "^18",
+    "react-leaflet": "^4.2.1"
+  },
+  "devDependencies": {
+    "@contentful/rich-text-types": "^16.8.3",
+    "@types/leaflet": "^1.9.12",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
