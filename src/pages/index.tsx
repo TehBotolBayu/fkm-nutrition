@@ -1612,10 +1612,10 @@ function App() {
       {/* {show && ( */}
       <section
         id="pricing"
-        className={`relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] img-bg ${show ? "visible" : "invisible"
+        className={`relative z-20  bg-black pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px] img-bg ${show ? "opacity-100 h-full block" : "opacity-0 h-0 bg-red-500 hidden"
           }`}
       >
-        <div className="relative z-10 overflow-hidden   py-20 lg:py-[115px]">
+        <div className="relative z-10   py-20 lg:py-[115px]">
           <div
             ref={ref2}
             className={`transition-all ease-out duration-700 
