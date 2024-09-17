@@ -7,7 +7,7 @@ const Navbar = () => {
   const pathName = usePathname();
 
   const [openNavBar, setopenNavBar] = useState(false);
-  const [win, setWindow] = useState<any>(0);
+  const [win, setWindow] = useState<Linkny>(0);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4 flex ">
-            <a
+            <Link
               href="/"
               className="navbar-logo w-full py-5 flex lg:flex-col items-center "
             >
@@ -42,7 +42,7 @@ const Navbar = () => {
                 className="header-logo w-6 md:w-16 mr-2 lg:mr-0"
               />
               <p className="text-white font-bold mt-1">NUTRITION</p>
-            </a>
+            </Link>
           </div>
           <div className="flex w-full items-center justify-between px-4">
             <div>
@@ -69,61 +69,61 @@ const Navbar = () => {
               >
                 <ul className=" md:flex 2xl:ml-20 mx-auto ">
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/"
                       className="ud-menu-scroll mx-8 flex py-2 text-base font-medium  group-hover:text-gray-300 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 "
                     >
                       BERANDA
-                    </a>
+                    </Link>
                   </li>
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/content?tag=artikel"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       ARTIKEL
-                    </a>
+                    </Link>
                   </li>
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/content?tag=kegiatan"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       KEGIATAN
-                    </a>
+                    </Link>
                   </li>
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/video"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       VIDEO
-                    </a>
+                    </Link>
                   </li>
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/galeri"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       GALERI
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="#team"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       PROFIL
-                    </a>
+                    </Link>
                   </li>
                   <li className="group relative ">
-                    <a
+                    <Link
                       href="/contact"
                       className="ud-menu-scroll mx-8 flex py-2 text-sm font-medium  group-hover:text-gray-300 lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 text-white lg:group-hover:text-white lg:group-hover:opacity-70 xl:ml-10"
                     >
                       KONTAK
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -171,18 +171,18 @@ const Navbar = () => {
               </span>
             </label>
             <div className="hidden sm:flex">
-              <a
+              <Link
                 href="signin.html"
                 className="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70"
               >
                 Sign In
-              </a>
-              <a
+              </Link>
+              <Link
                 href="signup.html"
                 className="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:"
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </div>
           signin */}

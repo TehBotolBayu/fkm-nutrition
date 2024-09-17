@@ -1,3 +1,4 @@
+import Link from "next/link";
 import heroImage from "/public/maskot.png";
 
 const Hero = () => {
@@ -43,12 +44,12 @@ const Hero = () => {
                 </p>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
-                    <a
+                    <Link
                       href="https://links.tailgrids.com/play-download"
                       className="inline-flex items-center justify-center rounded-md bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2 hover:text-body-color"
                     >
                       Cek Lebih Lanjut
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

@@ -3,6 +3,7 @@ import { createClient } from "contentful";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 import { useState } from "react";
 import FullImage from "@/components/Global/FullImage";
+import Link from "next/link";
 // dotenv.config();
 
 // const UList = ({ children }: { children: React.ReactNode }) => (
@@ -71,10 +72,10 @@ const renderOptions = {
     [INLINES.EMBEDDED_ENTRY]: (node: any, children: any) => {
       if (node.data.target.sys.contentType.sys.id === "blogPost") {
         return (
-          <a href={`/blog/${node.data.target.fields.slug}`}>
+          <Link href={`/blog/${node.data.target.fields.slug}`}>
             {" "}
             {node.data.target.fields.title}
-          </a>
+          </Link>
         );
       }
     },
