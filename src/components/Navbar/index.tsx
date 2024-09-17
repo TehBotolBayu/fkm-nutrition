@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-import logo from "/public/Lambang_Kab._Kutai_Kertanegara.png";
-import logo_i from "/public/Lambang_Kab._Kutai_Kertanegara.png";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const pathName = usePathname();
 
   const [openNavBar, setopenNavBar] = useState(false);
-  const [win, setWindow] = useState<Linkny>(0);
+  const [win, setWindow] = useState<any>(0);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
