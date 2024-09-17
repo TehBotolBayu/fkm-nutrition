@@ -144,8 +144,8 @@ const renderOptions = {
 // });
 
 const client = createClient({
-  space: "ntnopgihfcee",
-  accessToken: "DCv_ad_5KuMdJERFLbaI6s8MpavhbZ2Fx-SsWtzbAlk",
+  space: "aju6jm66kjbk",
+  accessToken: "fNo9nAsAoZ_wouPQVq4wEa9aIheaYCtbV2Zdx6Bxg0c",
 });
 
 const getBlogEntries = async (type: string) => {

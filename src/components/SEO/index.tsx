@@ -6,7 +6,7 @@ const SEO = ({title = "", description = ""}) => {
     <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="logo-invert.png" />
+        <link rel="icon" href="assets/images/logo/logo.png" />
     </Head>
   )
 }
